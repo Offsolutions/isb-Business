@@ -1,0 +1,171 @@
+/*================= Hi-res laptops and desktops================= */
+@media (min-width: 1170px) and (max-width: 1281px) {	
+
+}
+/*================ Normal desktop ==================== */
+@media (min-width: 992px) and (max-width: 1199px) {
+	.cta-area.style-2 .cta-content {
+	    padding-left: 0;
+	}
+	.business-nav ul.menu > li > a {
+	    padding: 5px 15px 42px 15px;
+	}
+	.business-nav .menu li.has-dropdown > a::after {
+	    right: -1px;
+	}
+}
+/*================ Tablet desktop :768px.==================*/
+@media (min-width: 768px) and (max-width: 991px) {	
+	/*Header top*/
+	.quote-top {
+	    margin-top: 12px;
+	}
+	/*About*/
+	div.card-body {
+	    display: contents;
+	}
+	.card-body img {
+	    margin-left: 20px;
+	    margin-bottom: 10px;
+	}
+	.about-bg {
+	    width: 100%;
+	}
+	.about-img-wrap {
+	    width: 100%;
+	    float: none;
+	}
+	.about-right-img {
+	    display: none;
+	}
+	/*Service*/
+	.single-service.style-1 {
+	    width: 100%;
+	}
+	/*Cta*/
+	.cta-area.style-2 .cta-content {
+	    padding-left: 0;
+	}
+	.cta-area.style-2 a.btn.btn-business {
+	    position: static;
+	}
+	/*Blog*/
+	.widget.widget-links {
+	    margin-bottom: 30px;
+	}
+	.site-content .widget-post img {
+	    float: none;
+	    margin-bottom: 10px;
+	}
+
+	.site-content .widget-post .post-content {
+	    padding-left: 0;
+	}
+}
+/*============ Min Width "768px" ==============*/
+@media(min-width:768px) {
+	.modal-dialog {
+	    width: 100%;
+	    max-width: 960px;
+	    margin: 50px auto;
+	}
+}
+/*================== small mobile :320px. ===================*/
+@media (max-width: 767px) {	
+
+	.order-one{ order: 1;}
+	.order-two{ order: 2;}
+	/*Header*/
+	.header-top-contact a {
+	    display: block;
+	}
+	.header-top-contact {
+	    padding: 25px 0 25px;
+	}
+	.quote-top, .header-search {
+	    display: none
+	}
+	.mean-container .mean-bar {
+	    margin-left: 0;
+	}
+	/*Slider*/
+	.single-slide-content h1 {
+	    font-size: 32px;
+	    line-height: 36px;
+	}
+	.slider-area .owl-dots {
+		display: none;
+	}
+	/*About*/
+	div.card-body {
+	    display: contents;
+	}
+	.card-body img {
+	    margin-left: 20px;
+	    margin-bottom: 10px;
+	}
+	.about-bg {
+	    width: 100%;
+	}
+	.about-img-wrap {
+	    width: 100%;
+	    float: none;
+	}
+	.about-right-img {
+	    display: none;
+	}
+	.about-bg {
+	    height: auto;
+	}
+	/*Get a Quote*/
+	form.contact-us-form {
+	    padding-bottom: 40px;
+	}
+	/*Footer*/
+	.widget.widget-contact, .widget.widget-links, .widget-post:last-child {
+	    margin-bottom: 30px;
+	}
+	/*Cta*/
+	.cta-area.style-2 .cta-content {
+	    padding-left: 0;
+	}
+	.cta-area.style-2 a.btn.btn-business {
+	    position: static;
+	}
+	/*Funfact*/
+	.single-fact {
+	    margin-bottom: 30px;
+	}
+	/*Blog comment*/
+	.single-field.one-third {
+	    width: 100%;
+	}
+	.comment-form-area {
+	    margin-bottom: 60px;
+	}
+	/*Get a quote*/
+	.qoute-img {
+	    display: none;
+	}
+	.get-quote-area {
+	    padding-top: 0;
+	}
+	/*Testimonial*/
+	.testimonial-area.style-1 .testimonial-content {
+	    padding-left: 25px;
+	    padding-top: 30px;
+	}
+	.testimonial-area.style-1 .testimonial-title {
+	    padding-top: 25px;
+	}
+	/*Accordian*/
+	div.card-body p {
+	    padding-left: 0;
+	}
+}
+/* ======================Large Mobile :480px.================== */
+@media only screen and (min-width: 480px) and (max-width: 767px) {	
+.container {width:450px}
+
+
+}
