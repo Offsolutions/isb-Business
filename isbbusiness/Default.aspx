@@ -27,6 +27,7 @@
         <link rel="stylesheet" href="assets/css/responsive.css">
     </head>
     <body>
+        <form runat="server">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -77,11 +78,13 @@
 								                            <div class="row">
 								                                <div class="form-group col-lg-12 col-md-12">
 								                                    <div class="field-label">UserName <span class="required">*</span></div>
-								                                    <input type="text" name="name" value="" placeholder="First Name" required>
+								                                    
+                                                                    <asp:TextBox ID="txtuser" runat="server" placeholder="User Name" required></asp:TextBox>
+                                                                  
 								                                </div>
 								                                <div class="form-group col-lg-12 col-md-12">
 								                                    <div class="field-label">Password <span class="required">*</span></div>
-								                                    <input type="text" name="name" value="" placeholder="Last Name" required>
+								                                    <asp:TextBox ID="txtpass" runat="server" TextMode="Password" placeholder="Password" required></asp:TextBox>
 								                                </div>
 								                                
 								                            </div>
@@ -89,7 +92,8 @@
 								                        <br>
 								                        <!--Form Portlet-->
 								                        <div class="text-left">
-								                            <button type="submit" class="theme-btn btn-style-two">Sign In</button>
+								                            
+                                                            <asp:Button ID="btnlogin" OnClick="btnlogin_Click" class="btn btn-success" runat="server" Text="Sign In" ValidationGroup="g" />
 								                        </div>
 								                    </form>
 								                </div>
@@ -142,7 +146,8 @@
 											</li>
 											
 											<li > <a href="#">Contact</a></li>
-										</ul>
+										    <li> <a href="Login.aspx">Login</a></li>
+                                        </ul>
 									</nav> 
 								</div>
 								<!-- End business Nav -->
@@ -474,6 +479,7 @@
         <script src="assets/js/plugins.js"></script>
 		<!-- main js -->
         <script src="assets/js/main.js"></script>
+            </form>
     </body>
 
 <!-- Mirrored from mushahid.me/tf/businece/businece/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 29 Oct 2018 04:27:19 GMT -->

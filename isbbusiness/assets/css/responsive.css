@@ -81,9 +81,10 @@
 	}
 	.header-top-contact {
 	    padding: 25px 0 25px;
+        display:none;
 	}
 	.quote-top, .header-search {
-	    display: none
+	    display: block
 	}
 	.mean-container .mean-bar {
 	    margin-left: 0;
