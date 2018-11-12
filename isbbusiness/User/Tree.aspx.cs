@@ -144,8 +144,9 @@ public partial class User_Tree : System.Web.UI.Page
             cmd.Connection = con;
             Label8.Text = Label8.Text;
             lnkparent.Text = Convert.ToString(cmd.ExecuteScalar());
-           
-        {
+            lbld1.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + Sr + "' and node='one'").ToString();
+            lbld2.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + Sr + "' and node='two'").ToString();
+            {
             SqlCommand cmd1 = new SqlCommand();
             cmd1.CommandText = "select cnt from cnt_down(@ID,'one') option (maxrecursion 0)";
             cmd1.Parameters.Add("@ID", SqlDbType.VarChar).Value = Sr;
@@ -170,6 +171,8 @@ public partial class User_Tree : System.Web.UI.Page
                 cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = Sr;
                 cmd.Connection = con;
                 LinkButton1.Text = Convert.ToString(cmd.ExecuteScalar());
+                lbld3.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton1.Text + "' and node='one'").ToString();
+                lbld4.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton1.Text + "' and node='two'").ToString();
                 {
                     SqlCommand cmd5 = new SqlCommand();
                     cmd5.CommandText = "select cnt from cnt_down(@ID,'one') option (maxrecursion 0)";
@@ -234,6 +237,8 @@ public partial class User_Tree : System.Web.UI.Page
                 cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = Sr;
                 cmd.Connection = con;
                 LinkButton4.Text = Convert.ToString(cmd.ExecuteScalar());
+                lbld9.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton4.Text + "' and node='one'").ToString();
+                lbld10.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton4.Text + "' and node='two'").ToString();
                 if (LinkButton4.Text != "")
                 {
                     active = Common.Get(objsql.GetSingleValue("select active from usersnew where regno='" + LinkButton4.Text + "'"));
@@ -309,6 +314,8 @@ public partial class User_Tree : System.Web.UI.Page
                     if (LinkButton2.Text != "")
                     {
                         active = Common.Get(objsql.GetSingleValue("select active from usersnew where regno='" + LinkButton2.Text + "'"));
+                        lbld5.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton2.Text + "' and node='one'").ToString();
+                        lbld6.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton2.Text + "' and node='two'").ToString();
                         {
                             SqlCommand cmd7 = new SqlCommand();
                             cmd7.CommandText = "select cnt from cnt_down(@ID,'one') option (maxrecursion 0)";
@@ -375,6 +382,8 @@ public partial class User_Tree : System.Web.UI.Page
                     cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = Sr;
                     cmd.Connection = con;
                     LinkButton3.Text = Convert.ToString(cmd.ExecuteScalar());
+                    lbld7.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton3.Text + "' and node='one'").ToString();
+                    lbld8.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton3.Text + "' and node='two'").ToString();
                     if (LinkButton3.Text != "")
                     {
                         Label13.Text = Common.Get(objsql.GetSingleValue("select fname from usersnew where regno='" + LinkButton3.Text + "'"));
@@ -457,7 +466,8 @@ public partial class User_Tree : System.Web.UI.Page
                     cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = Sr;
                     cmd.Connection = con;
                     LinkButton5.Text = Convert.ToString(cmd.ExecuteScalar());
-
+                    lbld11.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton5.Text + "' and node='one'").ToString();
+                    lbld12.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton5.Text + "' and node='two'").ToString();
 
                     if (LinkButton5.Text != "")
                     {
@@ -530,6 +540,8 @@ public partial class User_Tree : System.Web.UI.Page
                     cmd.Connection = con;
 
                     LinkButton6.Text = Convert.ToString(cmd.ExecuteScalar());
+                    lbld13.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton6.Text + "' and node='one'").ToString();
+                    lbld14.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton6.Text + "' and node='two'").ToString();
                     if (LinkButton6.Text != "")
                     {
                         active = Common.Get(objsql.GetSingleValue("select active from usersnew where regno='" + LinkButton6.Text + "'"));

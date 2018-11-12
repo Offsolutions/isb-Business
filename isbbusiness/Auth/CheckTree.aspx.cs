@@ -87,7 +87,7 @@ public partial class Auth_CheckTree : System.Web.UI.Page
         #region Check Left Active Pair
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "select regno from usersnew where sregno=@ID and node='one'";
+            cmd.CommandText = "select regno from usersnew where sregno=@ID and node='one' and active='1'";
             cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = Sr;
             cmd.Connection = con;
             if (Convert.ToString(cmd.ExecuteScalar()) != "")
@@ -137,59 +137,66 @@ public partial class Auth_CheckTree : System.Web.UI.Page
             cmd.Connection = con;
             Label8.Text = Label8.Text;
             lnkparent.Text = Convert.ToString(cmd.ExecuteScalar());
-            DataTable dt2 = new DataTable();
-            dt2 = objsql.GetTable("select * from legs where regno='" + Sr + "'");
-            if (dt2.Rows.Count > 0)
+            lbld1.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + Sr + "' and node='one'").ToString();
+            lbld2.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + Sr + "' and node='two'").ToString();
             {
-                lvmain.DataSource = dt2;
-                lvmain.DataBind();
-                parentnode.ImageUrl = "img/green.gif";
+                SqlCommand cmd1 = new SqlCommand();
+                cmd1.CommandText = "select cnt from cnt_down(@ID,'one') option (maxrecursion 0)";
+                cmd1.Parameters.Add("@ID", SqlDbType.VarChar).Value = Sr;
+                cmd1.Connection = con;
+                lblpl.Text = Convert.ToString(cmd1.ExecuteScalar());
             }
+            {
+                SqlCommand cmd2 = new SqlCommand();
+                cmd2.CommandText = "select cnt from cnt_down(@ID,'two') option (maxrecursion 0)";
+                cmd2.Parameters.Add("@ID", SqlDbType.VarChar).Value = Sr;
+                cmd2.Connection = con;
+                lblpr.Text = Convert.ToString(cmd2.ExecuteScalar());
+            }
+            parentnode.ImageUrl = "img/green.gif";
         }
         #endregion
         {
             #region LeftNode
             {
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "select regno from usersnew where sregno=@ID and node='one'";
+                cmd.CommandText = "select regno from usersnew where sregno=@ID and node='one' and active='1'";
                 cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = Sr;
                 cmd.Connection = con;
                 LinkButton1.Text = Convert.ToString(cmd.ExecuteScalar());
-                if (LinkButton1.Text != "")
+                lbld3.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton1.Text + "' and node='one'").ToString();
+                lbld4.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton1.Text + "' and node='two'").ToString();
                 {
-                    active = Common.Get(objsql.GetSingleValue("select active from usersnew where regno='" + LinkButton1.Text + "'"));
-                    dt21 = objsql.GetTable("select * from legs where regno='" + LinkButton1.Text + "'");
-                    if (dt21.Rows.Count > 0)
-                    {
-                        leftone.DataSource = dt21;
-                        leftone.DataBind();
-                    }
-                    else
-                    {
-                        leftone.DataSource = dt21;
-                        leftone.DataBind();
-
-                    }
-                    leftnode.ImageUrl = "img/green.gif";
-
+                    SqlCommand cmd5 = new SqlCommand();
+                    cmd5.CommandText = "select cnt from cnt_down(@ID,'one') option (maxrecursion 0)";
+                    cmd5.Parameters.Add("@ID", SqlDbType.VarChar).Value = LinkButton1.Text;
+                    cmd5.Connection = con;
+                    lblleftl.Text = Convert.ToString(cmd5.ExecuteScalar());
                 }
-
-                else
                 {
-                    leftone.DataSource = dt21;
-                    leftone.DataBind();
-                    leftnode.ImageUrl = "img/red.gif";
+                    SqlCommand cmd6 = new SqlCommand();
+                    cmd6.CommandText = "select cnt from cnt_down(@ID,'two') option (maxrecursion 0)";
+                    cmd6.Parameters.Add("@ID", SqlDbType.VarChar).Value = LinkButton1.Text;
+                    cmd6.Connection = con;
+                    lblleftr.Text = Convert.ToString(cmd6.ExecuteScalar());
                 }
-                if (active == "False")
-                {
-                    leftnode.ImageUrl = "img/red.gif";
-                }
+                leftnode.ImageUrl = "img/green.gif";
+                //else
+                //{
+                //    leftone.DataSource = dt21;
+                //    leftone.DataBind();
+                //    leftnode.ImageUrl = "img/red.gif";
+                //}
+                //if (active == "False")
+                //{
+                //    leftnode.ImageUrl = "img/red.gif";
+                //}
 
             }
             #endregion
             {
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "select fname from usersnew where sregno=@ID and node='one'";
+                cmd.CommandText = "select fname from usersnew where sregno=@ID and node='one' and active='1'";
                 cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = Sr;
                 cmd.Connection = con;
                 Label10.Text = Convert.ToString(cmd.ExecuteScalar());
@@ -219,25 +226,29 @@ public partial class Auth_CheckTree : System.Web.UI.Page
             #region RightNode
             {
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "select regno from usersnew where sregno=@ID and node='two'";
+                cmd.CommandText = "select regno from usersnew where sregno=@ID and node='two' and active='1'";
                 cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = Sr;
                 cmd.Connection = con;
                 LinkButton4.Text = Convert.ToString(cmd.ExecuteScalar());
+                lbld9.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton4.Text + "' and node='one'").ToString();
+                lbld10.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton4.Text + "' and node='two'").ToString();
                 if (LinkButton4.Text != "")
                 {
                     active = Common.Get(objsql.GetSingleValue("select active from usersnew where regno='" + LinkButton4.Text + "'"));
 
-                    dt213 = objsql.GetTable("select * from legs where regno='" + LinkButton4.Text + "'");
-                    if (dt213.Rows.Count > 0)
                     {
-                        lvrightnode.DataSource = dt213;
-                        lvrightnode.DataBind();
+                        SqlCommand cmd3 = new SqlCommand();
+                        cmd3.CommandText = "select cnt from cnt_down(@ID,'one') option (maxrecursion 0)";
+                        cmd3.Parameters.Add("@ID", SqlDbType.VarChar).Value = LinkButton4.Text;
+                        cmd3.Connection = con;
+                        lblrightl.Text = Convert.ToString(cmd3.ExecuteScalar());
                     }
-                    else
                     {
-                        lvrightnode.DataSource = dt213;
-                        lvrightnode.DataBind();
-
+                        SqlCommand cmd4 = new SqlCommand();
+                        cmd4.CommandText = "select cnt from cnt_down(@ID,'two') option (maxrecursion 0)";
+                        cmd4.Parameters.Add("@ID", SqlDbType.VarChar).Value = LinkButton4.Text;
+                        cmd4.Connection = con;
+                        lblrightr.Text = Convert.ToString(cmd4.ExecuteScalar());
                     }
                     rightnode.ImageUrl = "img/green.gif";
 
@@ -245,8 +256,8 @@ public partial class Auth_CheckTree : System.Web.UI.Page
 
                 else
                 {
-                    lvrightnode.DataSource = dt213;
-                    lvrightnode.DataBind();
+                    //   lvrightnode.DataSource = dt213;
+                    //   lvrightnode.DataBind();
                     rightnode.ImageUrl = "img/red.gif";
                 }
                 if (active == "False")
@@ -256,7 +267,7 @@ public partial class Auth_CheckTree : System.Web.UI.Page
             }
             {
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "select fname from usersnew where sregno=@ID and node='two'";
+                cmd.CommandText = "select fname from usersnew where sregno=@ID and node='two' and active='1'";
                 cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = Sr;
                 cmd.Connection = con;
                 Label11.Text = Convert.ToString(cmd.ExecuteScalar());
@@ -296,11 +307,21 @@ public partial class Auth_CheckTree : System.Web.UI.Page
                     if (LinkButton2.Text != "")
                     {
                         active = Common.Get(objsql.GetSingleValue("select active from usersnew where regno='" + LinkButton2.Text + "'"));
-                        dt23 = objsql.GetTable("select * from legs where regno='" + LinkButton2.Text + "'");
-                        if (dt23.Rows.Count > 0)
+                        lbld5.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton2.Text + "' and node='one'").ToString();
+                        lbld6.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton2.Text + "' and node='two'").ToString();
                         {
-                            lefttwo.DataSource = dt23;
-                            lefttwo.DataBind();
+                            SqlCommand cmd7 = new SqlCommand();
+                            cmd7.CommandText = "select cnt from cnt_down(@ID,'one') option (maxrecursion 0)";
+                            cmd7.Parameters.Add("@ID", SqlDbType.VarChar).Value = LinkButton2.Text;
+                            cmd7.Connection = con;
+                            lbl1.Text = Convert.ToString(cmd7.ExecuteScalar());
+                        }
+                        {
+                            SqlCommand cmd8 = new SqlCommand();
+                            cmd8.CommandText = "select cnt from cnt_down(@ID,'two') option (maxrecursion 0)";
+                            cmd8.Parameters.Add("@ID", SqlDbType.VarChar).Value = LinkButton2.Text;
+                            cmd8.Connection = con;
+                            lbl2.Text = Convert.ToString(cmd8.ExecuteScalar());
                         }
 
                         leftnodeleft.ImageUrl = "img/green.gif";
@@ -309,8 +330,7 @@ public partial class Auth_CheckTree : System.Web.UI.Page
 
                     else
                     {
-                        lefttwo.DataSource = dt23;
-                        lefttwo.DataBind();
+
                         leftnodeleft.ImageUrl = "img/red.gif";
                     }
                     if (active == "False")
@@ -355,6 +375,8 @@ public partial class Auth_CheckTree : System.Web.UI.Page
                     cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = Sr;
                     cmd.Connection = con;
                     LinkButton3.Text = Convert.ToString(cmd.ExecuteScalar());
+                    lbld7.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton3.Text + "' and node='one'").ToString();
+                    lbld8.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton3.Text + "' and node='two'").ToString();
                     if (LinkButton3.Text != "")
                     {
                         Label13.Text = Common.Get(objsql.GetSingleValue("select fname from usersnew where regno='" + LinkButton3.Text + "'"));
@@ -377,16 +399,20 @@ public partial class Auth_CheckTree : System.Web.UI.Page
                         active = Common.Get(objsql.GetSingleValue("select active from usersnew where regno='" + LinkButton3.Text + "'"));
 
                         leftnoderight.ImageUrl = "img/green.gif";
-                        dt2 = objsql.GetTable("select * from legs where regno='" + LinkButton3.Text + "'");
-                        if (dt2.Rows.Count > 0)
-                        {
-                            leftthree.DataSource = dt2;
-                            leftthree.DataBind();
 
-                        }
-                        else
                         {
-                            dt2.Clear();
+                            SqlCommand cmd11 = new SqlCommand();
+                            cmd11.CommandText = "select cnt from cnt_down(@ID,'one') option (maxrecursion 0)";
+                            cmd11.Parameters.Add("@ID", SqlDbType.VarChar).Value = LinkButton3.Text;
+                            cmd11.Connection = con;
+                            lbl3.Text = Convert.ToString(cmd11.ExecuteScalar());
+                        }
+                        {
+                            SqlCommand cmd12 = new SqlCommand();
+                            cmd12.CommandText = "select cnt from cnt_down(@ID,'two') option (maxrecursion 0)";
+                            cmd12.Parameters.Add("@ID", SqlDbType.VarChar).Value = LinkButton3.Text;
+                            cmd12.Connection = con;
+                            lbl4.Text = Convert.ToString(cmd12.ExecuteScalar());
                         }
                         if (active == "False")
                         {
@@ -397,8 +423,8 @@ public partial class Auth_CheckTree : System.Web.UI.Page
                     {
                         Label13.Text = "";
                         leftnoderight.ImageUrl = "img/red.gif";
-                        leftthree.DataSource = dt2;
-                        leftthree.DataBind();
+                        // leftthree.DataSource = dt2;
+                        //leftthree.DataBind();
                     }
                 }
                 {
@@ -433,23 +459,26 @@ public partial class Auth_CheckTree : System.Web.UI.Page
                     cmd.Parameters.Add("@ID", SqlDbType.VarChar).Value = Sr;
                     cmd.Connection = con;
                     LinkButton5.Text = Convert.ToString(cmd.ExecuteScalar());
-
+                    lbld11.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton5.Text + "' and node='one'").ToString();
+                    lbld12.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton5.Text + "' and node='two'").ToString();
 
                     if (LinkButton5.Text != "")
                     {
                         active = Common.Get(objsql.GetSingleValue("select active from usersnew where regno='" + LinkButton5.Text + "'"));
 
-                        dt212 = objsql.GetTable("select * from legs where regno='" + LinkButton5.Text + "'");
-                        if (dt212.Rows.Count > 0)
                         {
-                            lvrightleft.DataSource = dt212;
-                            lvrightleft.DataBind();
+                            SqlCommand cmd13 = new SqlCommand();
+                            cmd13.CommandText = "select cnt from cnt_down(@ID,'one') option (maxrecursion 0)";
+                            cmd13.Parameters.Add("@ID", SqlDbType.VarChar).Value = LinkButton5.Text;
+                            cmd13.Connection = con;
+                            lbl5.Text = Convert.ToString(cmd13.ExecuteScalar());
                         }
-                        else
                         {
-                            lvrightleft.DataSource = dt212;
-                            lvrightleft.DataBind();
-
+                            SqlCommand cmd14 = new SqlCommand();
+                            cmd14.CommandText = "select cnt from cnt_down(@ID,'two') option (maxrecursion 0)";
+                            cmd14.Parameters.Add("@ID", SqlDbType.VarChar).Value = LinkButton5.Text;
+                            cmd14.Connection = con;
+                            lbl6.Text = Convert.ToString(cmd14.ExecuteScalar());
                         }
                         rightleft.ImageUrl = "img/green.gif";
 
@@ -457,8 +486,8 @@ public partial class Auth_CheckTree : System.Web.UI.Page
 
                     else
                     {
-                        lvrightleft.DataSource = dt212;
-                        lvrightleft.DataBind();
+                        // lvrightleft.DataSource = dt212;
+                        // lvrightleft.DataBind();
                         rightleft.ImageUrl = "img/red.gif";
                     }
                     if (active == "False")
@@ -504,22 +533,25 @@ public partial class Auth_CheckTree : System.Web.UI.Page
                     cmd.Connection = con;
 
                     LinkButton6.Text = Convert.ToString(cmd.ExecuteScalar());
+                    lbld13.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton6.Text + "' and node='one'").ToString();
+                    lbld14.Text = objsql.GetSingleValue("select count(*) from usersnew where spillsregno='" + LinkButton6.Text + "' and node='two'").ToString();
                     if (LinkButton6.Text != "")
                     {
                         active = Common.Get(objsql.GetSingleValue("select active from usersnew where regno='" + LinkButton6.Text + "'"));
 
-
-                        dt211 = objsql.GetTable("select * from legs where regno='" + LinkButton6.Text + "'");
-                        if (dt211.Rows.Count > 0)
                         {
-                            lvrightright.DataSource = dt211;
-                            lvrightright.DataBind();
+                            SqlCommand cmd15 = new SqlCommand();
+                            cmd15.CommandText = "select cnt from cnt_down(@ID,'one') option (maxrecursion 0)";
+                            cmd15.Parameters.Add("@ID", SqlDbType.VarChar).Value = LinkButton6.Text;
+                            cmd15.Connection = con;
+                            lbl7.Text = Convert.ToString(cmd15.ExecuteScalar());
                         }
-                        else
                         {
-                            lvrightright.DataSource = dt211;
-                            lvrightright.DataBind();
-
+                            SqlCommand cmd16 = new SqlCommand();
+                            cmd16.CommandText = "select cnt from cnt_down(@ID,'two') option (maxrecursion 0)";
+                            cmd16.Parameters.Add("@ID", SqlDbType.VarChar).Value = LinkButton6.Text;
+                            cmd16.Connection = con;
+                            lbl8.Text = Convert.ToString(cmd16.ExecuteScalar());
                         }
                         rightright.ImageUrl = "img/green.gif";
 
@@ -527,8 +559,8 @@ public partial class Auth_CheckTree : System.Web.UI.Page
 
                     else
                     {
-                        lvrightright.DataSource = dt211;
-                        lvrightright.DataBind();
+                        // lvrightright.DataSource = dt211;
+                        // lvrightright.DataBind();
                         rightright.ImageUrl = "img/red.gif";
                     }
                     if (active == "False")

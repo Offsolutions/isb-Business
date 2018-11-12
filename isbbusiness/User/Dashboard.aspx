@@ -2,6 +2,13 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cptitle" runat="Server">
     <style>
+        .contact-box .contact-icon {/* display: table-cell; *//* padding-right: 20px; */}
+.contact-box .contact-icon i { background: transparent; line-height: normal; font-size: 34px; }
+.contact-box .contact-icon span{ background: transparent; line-height: normal; font-size: 14px; }
+.contact-box .contact-info {/* display: table-cell; *//* vertical-align: top; */}
+.col-md-12 {
+    display: contents;
+}
         .Dash {
             padding: 20px;
             background: menu;

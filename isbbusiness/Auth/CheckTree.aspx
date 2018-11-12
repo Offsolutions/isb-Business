@@ -149,7 +149,7 @@ td {
             </table>
   
     <section class="management-hierarchy">
-  
+   
                 <div class="hv-container">
                     <div class="hv-wrapper">
 
@@ -160,13 +160,10 @@ td {
                                 <div class="person">
                                     <asp:Image ID="parentnode" runat="server" />
                                     <p class="name">
-                                       <asp:Label ID="Label8" runat="server" Text="Label" Font-Bold="true"></asp:Label><br>
+                                        <asp:Label ID="Label8" runat="server" Text="Label" Font-Bold="true"></asp:Label><br>
                                         <asp:LinkButton ID="lnkparent" runat="server" OnClick="lnkparent_Click"></asp:LinkButton><br />
-                                        <asp:ListView ID="lvmain" runat="server">
-                                            <ItemTemplate>
-                                                L:<%#Eval("leftleg") %> | R:<%#Eval("rightleg") %><br />D:<%#Eval("leftdirect") %> | D: <%#Eval("rightdirect") %>
-                                            </ItemTemplate>
-                                        </asp:ListView>
+                                         L:<asp:Label ID="lblpl" runat="server" Text=""></asp:Label> | R:<asp:Label ID="lblpr" runat="server" Text=""></asp:Label><br />
+                                        D:<asp:Label ID="lbld1" runat="server" Text=""></asp:Label> | D: <asp:Label ID="lbld2" runat="server" Text=""></asp:Label>
                                     </p>
                                 </div>
                             </div>
@@ -186,11 +183,8 @@ td {
                                                         Font-Bold="true" Font-Size="Large" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"></asp:LinkButton>
                                                     <br /><asp:Label ID="Label10" runat="server" Font-Size="Small"></asp:Label>
                                                     <br />
-                                                    <asp:ListView ID="leftone" runat="server">
-                                                        <ItemTemplate>
-                                                            L:<%#Eval("leftleg") %> | R:<%#Eval("rightleg") %><br />D:<%#Eval("leftdirect") %> | D: <%#Eval("rightdirect") %>
-                                                        </ItemTemplate>
-                                                    </asp:ListView>
+                                                    L:<asp:Label ID="lblleftl" runat="server" Text=""></asp:Label> | R:<asp:Label ID="lblleftr" runat="server" Text=""></asp:Label>
+                                                    <br />D:<asp:Label ID="lbld3" runat="server" Text="Label"></asp:Label> | D:<asp:Label ID="lbld4" runat="server" Text=""></asp:Label>
 
                                                 </p>
                                             </div>
@@ -206,11 +200,8 @@ td {
                                                             Font-Bold="true" Font-Size="Large" ID="LinkButton2" runat="server" OnClick="LinkButton2_Click"></asp:LinkButton>
                                                         <br />
                                                         <asp:Label ID="Label12" runat="server" Font-Size="Small"></asp:Label><br />
-                                                        <asp:ListView ID="lefttwo" runat="server">
-                                                            <ItemTemplate>
-                                                                L:<%#Eval("leftleg") %>| R:<%#Eval("rightleg") %><br />D:<%#Eval("leftdirect") %>| D: <%#Eval("rightdirect") %>
-                                                            </ItemTemplate>
-                                                        </asp:ListView>
+                                                     L:<asp:Label ID="lbl1" runat="server" Text=""></asp:Label>| R:<asp:Label ID="lbl2" runat="server" Text=""></asp:Label><br />
+                                                       D:<asp:Label ID="lbld5" runat="server" Text=""></asp:Label> | D: <asp:Label ID="lbld6" runat="server" Text=""></asp:Label>
                                                     </p>
                                                 </div>
                                             </div>
@@ -223,11 +214,8 @@ td {
                                                         <asp:LinkButton CssClass="brown"
                                                             Font-Bold="true" Font-Size="Large" ID="LinkButton3" runat="server" OnClick="LinkButton3_Click"></asp:LinkButton><br />
                                                         <asp:Label ID="Label13" runat="server" Font-Size="Small"></asp:Label><br />
-                                                        <asp:ListView ID="leftthree" runat="server">
-                                                            <ItemTemplate>
-                                                                L:<%#Eval("leftleg") %>| R:<%#Eval("rightleg") %><br />D:<%#Eval("leftdirect") %>| D: <%#Eval("rightdirect") %>
-                                                            </ItemTemplate>
-                                                        </asp:ListView>
+                                                       L:<asp:Label ID="lbl3" runat="server" Text=""></asp:Label>| R:<asp:Label ID="lbl4" runat="server" Text=""></asp:Label><br />
+                                                        D:<asp:Label ID="lbld7" runat="server" Text=""></asp:Label> | D: <asp:Label ID="lbld8" runat="server" Text=""></asp:Label>
                                                     </p>
                                                 </div>
                                             </div>
@@ -249,11 +237,8 @@ td {
                                                     <asp:LinkButton CssClass="my-table-td-center"
                                                         Font-Bold="true" Font-Size="Large" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click"></asp:LinkButton><br />
                                                     <asp:Label ID="Label11" runat="server" Font-Size="Small"></asp:Label><br />
-                                                     <asp:ListView ID="lvrightnode" runat="server">
-                                                            <ItemTemplate>
-                                                                L:<%#Eval("leftleg") %>| R:<%#Eval("rightleg") %><BR />D:<%#Eval("leftdirect") %>| D: <%#Eval("rightdirect") %>
-                                                            </ItemTemplate>
-                                                        </asp:ListView>
+                                                     L:<asp:Label ID="lblrightl" runat="server" Text=""></asp:Label>| R:<asp:Label ID="lblrightr" runat="server" Text=""></asp:Label>
+                                                    <BR /> D:<asp:Label ID="lbld9" runat="server" Text=""></asp:Label> | D: <asp:Label ID="lbld10" runat="server" Text=""></asp:Label>
                                                 </p>
                                             </div>
                                         </div>
@@ -267,11 +252,8 @@ td {
                                                         <asp:LinkButton CssClass="brown"
                                                             Font-Bold="true" Font-Size="Large" ID="LinkButton5" runat="server" OnClick="LinkButton5_Click"></asp:LinkButton><br />
                                                         <asp:Label ID="Label14" runat="server" Font-Size="Small"></asp:Label>
-                                                        <asp:ListView ID="lvrightleft" runat="server">
-                                                            <ItemTemplate>
-                                                                L:<%#Eval("leftleg") %>| R:<%#Eval("rightleg") %><br />:<%#Eval("leftdirect") %>| D: <%#Eval("rightdirect") %>
-                                                            </ItemTemplate>
-                                                        </asp:ListView>
+                                                        L:<asp:Label ID="lbl5" runat="server" Text=""></asp:Label>| R:<asp:Label ID="lbl6" runat="server" Text=""></asp:Label><br />
+                                                         D:<asp:Label ID="lbld11" runat="server" Text=""></asp:Label> | D: <asp:Label ID="lbld12" runat="server" Text=""></asp:Label>
                                                     </p>
                                                 </div>
                                             </div>
@@ -285,12 +267,8 @@ td {
                                                             Font-Bold="true" Font-Size="Large" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click"></asp:LinkButton>
                                                         <br />
                                                         <asp:Label ID="Label15" runat="server" Font-Size="Small"></asp:Label><br />
-
-                                                        <asp:ListView ID="lvrightright" runat="server">
-                                                            <ItemTemplate>
-                                                                L:<%#Eval("leftleg") %>| R:<%#Eval("rightleg") %><br />D:<%#Eval("leftdirect") %>| D: <%#Eval("rightdirect") %>
-                                                            </ItemTemplate>
-                                                        </asp:ListView>
+                                                        L:<asp:Label ID="lbl7" runat="server" Text=""></asp:Label>| R:<asp:Label ID="lbl8" runat="server" Text=""></asp:Label>
+                                                        <br />D:<asp:Label ID="lbld13" runat="server" Text=""></asp:Label> | D: <asp:Label ID="lbld14" runat="server" Text=""></asp:Label>
                                                     </p>
                                                 </div>
                                             </div>
@@ -306,7 +284,7 @@ td {
 
                     </div>
                 </div>
-    
+       
     </section>
      </div>
 </asp:Content>

@@ -169,7 +169,7 @@ td {
                                         <asp:Label ID="Label8" runat="server" Text="Label" Font-Bold="true"></asp:Label><br>
                                         <asp:LinkButton ID="lnkparent" runat="server" OnClick="lnkparent_Click"></asp:LinkButton><br />
                                          L:<asp:Label ID="lblpl" runat="server" Text=""></asp:Label> | R:<asp:Label ID="lblpr" runat="server" Text=""></asp:Label><br />
-                                        D: | D: 
+                                        D:<asp:Label ID="lbld1" runat="server" Text=""></asp:Label> | D: <asp:Label ID="lbld2" runat="server" Text=""></asp:Label>
                                     </p>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@ td {
                                                     <br /><asp:Label ID="Label10" runat="server" Font-Size="Small"></asp:Label>
                                                     <br />
                                                     L:<asp:Label ID="lblleftl" runat="server" Text=""></asp:Label> | R:<asp:Label ID="lblleftr" runat="server" Text=""></asp:Label>
-                                                    <br />D:<%#Eval("leftdirect") %> | D: <%#Eval("rightdirect") %>
+                                                    <br />D:<asp:Label ID="lbld3" runat="server" Text="Label"></asp:Label> | D:<asp:Label ID="lbld4" runat="server" Text=""></asp:Label>
 
                                                 </p>
                                             </div>
@@ -207,7 +207,7 @@ td {
                                                         <br />
                                                         <asp:Label ID="Label12" runat="server" Font-Size="Small"></asp:Label><br />
                                                      L:<asp:Label ID="lbl1" runat="server" Text=""></asp:Label>| R:<asp:Label ID="lbl2" runat="server" Text=""></asp:Label><br />
-                                                        D:<%#Eval("leftdirect") %>| D: <%#Eval("rightdirect") %>
+                                                       D:<asp:Label ID="lbld5" runat="server" Text=""></asp:Label> | D: <asp:Label ID="lbld6" runat="server" Text=""></asp:Label>
                                                     </p>
                                                 </div>
                                             </div>
@@ -221,7 +221,7 @@ td {
                                                             Font-Bold="true" Font-Size="Large" ID="LinkButton3" runat="server" OnClick="LinkButton3_Click"></asp:LinkButton><br />
                                                         <asp:Label ID="Label13" runat="server" Font-Size="Small"></asp:Label><br />
                                                        L:<asp:Label ID="lbl3" runat="server" Text=""></asp:Label>| R:<asp:Label ID="lbl4" runat="server" Text=""></asp:Label><br />
-                                                        D:<%#Eval("leftdirect") %>| D: <%#Eval("rightdirect") %>
+                                                        D:<asp:Label ID="lbld7" runat="server" Text=""></asp:Label> | D: <asp:Label ID="lbld8" runat="server" Text=""></asp:Label>
                                                     </p>
                                                 </div>
                                             </div>
@@ -244,7 +244,7 @@ td {
                                                         Font-Bold="true" Font-Size="Large" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click"></asp:LinkButton><br />
                                                     <asp:Label ID="Label11" runat="server" Font-Size="Small"></asp:Label><br />
                                                      L:<asp:Label ID="lblrightl" runat="server" Text=""></asp:Label>| R:<asp:Label ID="lblrightr" runat="server" Text=""></asp:Label>
-                                                    <BR />D:<%#Eval("leftdirect") %>| D: <%#Eval("rightdirect") %>
+                                                    <BR /> D:<asp:Label ID="lbld9" runat="server" Text=""></asp:Label> | D: <asp:Label ID="lbld10" runat="server" Text=""></asp:Label>
                                                 </p>
                                             </div>
                                         </div>
@@ -259,7 +259,7 @@ td {
                                                             Font-Bold="true" Font-Size="Large" ID="LinkButton5" runat="server" OnClick="LinkButton5_Click"></asp:LinkButton><br />
                                                         <asp:Label ID="Label14" runat="server" Font-Size="Small"></asp:Label>
                                                         L:<asp:Label ID="lbl5" runat="server" Text=""></asp:Label>| R:<asp:Label ID="lbl6" runat="server" Text=""></asp:Label><br />
-                                                        D:<%#Eval("leftdirect") %>| D: <%#Eval("rightdirect") %>
+                                                         D:<asp:Label ID="lbld11" runat="server" Text=""></asp:Label> | D: <asp:Label ID="lbld12" runat="server" Text=""></asp:Label>
                                                     </p>
                                                 </div>
                                             </div>
@@ -274,7 +274,7 @@ td {
                                                         <br />
                                                         <asp:Label ID="Label15" runat="server" Font-Size="Small"></asp:Label><br />
                                                         L:<asp:Label ID="lbl7" runat="server" Text=""></asp:Label>| R:<asp:Label ID="lbl8" runat="server" Text=""></asp:Label>
-                                                        <br />D:<%#Eval("leftdirect") %>| D: <%#Eval("rightdirect") %>
+                                                        <br />D:<asp:Label ID="lbld13" runat="server" Text=""></asp:Label> | D: <asp:Label ID="lbld14" runat="server" Text=""></asp:Label>
                                                     </p>
                                                 </div>
                                             </div>

@@ -73,7 +73,7 @@
                                     <li><a href="Profile-List.aspx"><i class="fa fa-desktop"></i>Profile </a>
 
                                     </li>
-                                  <%--  <li><a href="LastJoining.aspx"><i class="fa fa-edit"></i>Check Last Joining </a>
+                                    <li><a href="LastJoining.aspx"><i class="fa fa-edit"></i>Check Last Joining </a>
 
                                     </li>
                                     <li><a href="ChangeSponser.aspx"><i class="fa fa-desktop"></i>Change Sponsor </a>
@@ -85,17 +85,23 @@
                                     <li><a href="Tree.aspx"><i class="fa fa-desktop"></i>Check Tree </a>
 
                                     </li>
-                                    <li><a href="creteria-list.aspx"><i class="fa fa-desktop"></i>Creteria</a>
-
-                                    </li>
-                                    
                                     <li class="parent">
                                         <a href="#"><span>Password</span></a>
                                         <ul class="sub-menu">
                                             <li><a href="ChangeUserPassword.aspx"><i class="fa fa-desktop"></i>Change USer Password </a></li>
-                                            <li><a href="sendpassword.aspx"><i class="fa fa-desktop"></i>Resend Password SMS </a></li>
+                                            <%--<li><a href="sendpassword.aspx"><i class="fa fa-desktop"></i>Resend Password SMS </a></li>--%>
                                         </ul>
                                     </li>
+
+                                  <%--  
+                                    <li><a href="Tree.aspx"><i class="fa fa-desktop"></i>Check Tree </a>
+
+                                    </li>
+                                    <li><a href="creteria-list.aspx"><i class="fa fa-desktop"></i>Creteria</a>
+
+                                    </li>
+                                    
+                                    
 
                                     <li class="parent">
                                         <a href="#"><span>Installments</span></a>
